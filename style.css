@@ -1,0 +1,263 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #090710;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 7%;
+    background: #130d20;
+    border-bottom: 1px solid #35204c;
+}
+
+.logo {
+    font-size: 30px;
+    color: #bd72ff;
+}
+
+.logo span {
+    color: white;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #bd72ff;
+}
+
+.hero {
+    padding: 100px 8%;
+    background: linear-gradient(120deg, #30104d, #10091b, #090710);
+}
+
+.hero h2 {
+    font-size: clamp(42px, 7vw, 70px);
+    margin-bottom: 20px;
+}
+
+.hero h2 span {
+    color: #bd72ff;
+}
+
+.hero p {
+    color: #c9bfd4;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.main-button,
+.upload-button {
+    display: inline-block;
+    background: #923ce0;
+    color: white;
+    padding: 14px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+}
+
+.main-button:hover,
+.upload-button:hover {
+    background: #b56aff;
+}
+
+.search-section,
+.library {
+    padding: 45px 8%;
+}
+
+.search-section h2,
+.library h2 {
+    margin-bottom: 22px;
+    font-size: 27px;
+}
+
+#search {
+    width: 100%;
+    max-width: 600px;
+    padding: 16px;
+    background: #1a1325;
+    border: 1px solid #593278;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+#search:focus {
+    border-color: #bd72ff;
+}
+
+.song-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.song-card {
+    background: #171020;
+    padding: 20px;
+    border: 1px solid #38244a;
+    border-radius: 15px;
+}
+
+.song-card:hover {
+    border-color: #bd72ff;
+    transform: translateY(-3px);
+}
+
+.song-cover {
+    height: 120px;
+    background: linear-gradient(135deg, #772bb5, #251034);
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.song-card button {
+    background: #923ce0;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 9px 16px;
+    margin-top: 12px;
+    cursor: pointer;
+}
+
+.empty {
+    color: #aaa;
+}
+
+.player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #1b1028;
+    border-top: 1px solid #593278;
+    padding: 17px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.song-info p {
+    color: #bba9ca;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.controls {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.controls button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+#play {
+    background: #923ce0;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 18px 5%;
+    }
+
+    nav {
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 75px 6%;
+    }
+
+    .player {
+        padding: 15px 5%;
+    }
+}
+
+.auth-section {
+    background: #130d20;
+    border: 1px solid #593278;
+    border-radius: 18px;
+    padding: 35px;
+    max-width: 500px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.auth-section h2 {
+    color: #bd72ff;
+    margin-bottom: 12px;
+}
+
+.auth-section p {
+    color: #c9bfd4;
+    margin-bottom: 18px;
+}
+
+.auth-section input {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    background: #090710;
+    color: white;
+    border: 1px solid #593278;
+    border-radius: 10px;
+}
+
+.auth-section button {
+    background: #923ce0;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 22px;
+    margin: 8px;
+    cursor: pointer;
+}
+
+.auth-section button:hover {
+    background: #b56aff;
+}

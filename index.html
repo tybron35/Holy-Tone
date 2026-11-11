@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mu-ice | Your Music World</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1 class="logo">Mu-<span>ice</span></h1>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#discover">Discover</a>
+            <a href="#library">My Library</a>
+        </nav>
+    </header>
+<section class="auth-section">
+    <h2>Welcome to Holy Tone</h2>
+    <p>Create an account or log in to your music world.</p>
+
+    <input type="email" id="email" placeholder="Email address">
+
+    <input type="password" id="password" placeholder="Password">
+
+    <button id="signup">Sign Up</button>
+    <button id="login">Log In</button>
+    <button id="logout" hidden>Log Out</button>
+
+    <p id="authMessage"></p>
+</section>
+    <main id="home">
+
+        <section class="hero">
+            <h2>Your Music.<br><span>Your World.</span></h2>
+            <p>Discover music. Create memories. Enjoy every beat.</p>
+            <a href="#discover" class="main-button">Explore Music</a>
+        </section>
+
+        <section class="search-section" id="discover">
+            <h2>Discover Music</h2>
+            <input
+                type="text"
+                id="search"
+                placeholder="Search songs..."
+            >
+        </section>
+
+        <section class="library" id="library">
+            <h2>Your Music Library</h2>
+
+            <div class="song-list" id="songList">
+                <p class="empty">Your library is waiting for music!</p>
+            </div>
+
+            <label for="upload" class="upload-button">
+                + Upload Your Music
+            </label>
+
+            <input
+                type="file"
+                id="upload"
+                accept="audio/*"
+                multiple
+                hidden
+            >
+        </section>
+
+    </main>
+
+    <footer class="player">
+        <div class="song-info">
+            <h3 id="songTitle">No song selected</h3>
+            <p>Mu-ice Player</p>
+        </div>
+
+        <div class="controls">
+            <button id="previous">⏮</button>
+            <button id="play">▶</button>
+            <button id="next">⏭</button>
+        </div>
+
+        <audio id="audio"></audio>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+
+</body>
+</html>
