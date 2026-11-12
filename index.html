@@ -2,124 +2,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Holy Tone | Christian Music</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexPlay - Your Games, Your World</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <header>
-        <h1 class="logo">Holy <span>Tone</span></h1>
+  <!-- AGE VERIFICATION: FIRST SCREEN -->
+  <section id="ageGate" class="gate">
+    <div class="gate-card">
+      <h1 class="logo">Nex<span>Play</span> 🎮</h1>
+      <h2>Welcome to NexPlay!</h2>
+      <p>You must be at least 13 years old to use NexPlay.</p>
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#discover">Discover</a>
-            <a href="#library">My Library</a>
-        </nav>
-    </header>
-<section class="auth-section">
-    <h2>Welcome to Holy Tone</h2>
-    <p>Create an account or log in to your music world.</p>
+      <label class="check-row">
+        <input type="checkbox" id="ageConfirm">
+        I confirm that I am 13 years old or older.
+      </label>
 
-    <input type="email" id="email" placeholder="Email address">
-
-    <input type="password" id="password" placeholder="Password">
-
-    <button id="signup">Sign Up</button>
-    <button id="login">Log In</button>
-    <button id="logout" hidden>Log Out</button>
-
-    <p id="authMessage"></p>
-</section>
-    <main id="home">
-
-        <section class="hero">
-            <h2>Your Music.<br><span>Your World.</span></h2>
-            <p>Discover music. Create memories. Enjoy every beat.</p>
-            <a href="#discover" class="main-button">Explore Music</a>
-        </section>
-
-        <section class="search-section" id="discover">
-            <h2>Discover Music</h2>
-            <input
-                type="text"
-                id="search"
-                placeholder="Search songs..."
-            >
-        </section>
-        <section class="music-catalog" id="music">
-    <h2>Christian Music</h2>
-    <p>Discover music that lifts your spirit.</p>
-
-    <div class="artist-list">
-        <div class="artist">
-            <h3>Brandon Lake</h3>
-            <a href="https://www.youtube.com/results?search_query=Brandon+Lake+official+music"
-               target="_blank">YouTube</a>
-            |
-            <a href="https://open.spotify.com/search/Brandon%20Lake"
-               target="_blank">Spotify</a>
-        </div>
-
-        <div class="artist">
-            <h3>Elevation Worship</h3>
-            <a href="https://www.youtube.com/results?search_query=Elevation+Worship+official+music"
-               target="_blank">YouTube</a>
-            |
-            <a href="https://open.spotify.com/search/Elevation%20Worship"
-               target="_blank">Spotify</a>
-        </div>
-
-        <div class="artist">
-            <h3>Forrest Frank</h3>
-            <a href="https://www.youtube.com/results?search_query=Forrest+Frank+official+music"
-               target="_blank">YouTube</a>
-            |
-            <a href="https://open.spotify.com/search/Forrest%20Frank"
-               target="_blank">Spotify</a>
-        </div>
+      <button id="continueAge" disabled>Continue</button>
+      <p id="ageMessage" class="message"></p>
     </div>
-</section>
-        <section class="library" id="library">
-            <h2>Your Music Library</h2>
+  </section>
 
-            <div class="song-list" id="songList">
-                <p class="empty">Your library is waiting for music!</p>
-            </div>
+  <!-- VERIFICATION SCREEN -->
+  <section id="verifyScreen" class="gate" hidden>
+    <div class="gate-card">
+      <h1 class="logo">Nex<span>Play</span> 🎮</h1>
+      <h2>Verify your account</h2>
+      <p>Choose how you would like to verify that you can access your account.</p>
 
-            <label for="upload" class="upload-button">
-                + Upload Your Music
-            </label>
+      <div class="verify-choice">
+        <label>
+          <input type="radio" name="verifyMethod" value="email" checked>
+          <span>📧 Verify with email</span>
+        </label>
 
-            <input
-                type="file"
-                id="upload"
-                accept="audio/*"
-                multiple
-                hidden
-            >
-        </section>
+        <label>
+          <input type="radio" name="verifyMethod" value="phone">
+          <span>📱 Verify with phone</span>
+        </label>
+      </div>
 
+      <div id="emailVerify">
+        <label for="verifyEmail">Email address</label>
+        <input id="verifyEmail" type="email" placeholder="you@example.com">
+        <p class="small-note">Email verification will send a link to your inbox.</p>
+      </div>
+
+      <div id="phoneVerify" hidden>
+        <label for="verifyPhone">Phone number</label>
+        <input id="verifyPhone" type="tel" placeholder="+1 555 555 5555">
+        <p class="small-note">Phone verification needs additional Firebase setup.</p>
+      </div>
+
+      <button id="sendVerification">Continue</button>
+      <p id="verifyMessage" class="message"></p>
+
+      <div id="emailSent" hidden>
+        <p>Check your email for the verification link. After verifying, return here and continue.</p>
+        <button id="checkEmailVerification">I've verified my email</button>
+      </div>
+
+      <div id="phoneSetupMessage" hidden>
+        <p>Phone verification is not connected yet. We'll enable it after setting up Firebase phone authentication.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOT CHECK SCREEN -->
+  <section id="botScreen" class="gate" hidden>
+    <div class="gate-card">
+      <h1 class="logo">Nex<span>Play</span> 🎮</h1>
+      <h2>Quick bot check</h2>
+      <p>Answer this simple question to continue.</p>
+
+      <p id="botQuestion" class="bot-question">What is 3 + 4?</p>
+      <input id="botAnswer" type="number" placeholder="Your answer">
+      <button id="checkBot">Verify</button>
+      <p id="botMessage" class="message"></p>
+    </div>
+  </section>
+
+  <!-- MAIN WEBSITE: HIDDEN UNTIL VERIFICATION -->
+  <div id="mainWebsite" hidden>
+
+    <header class="site-header">
+      <a href="#" class="logo">Nex<span>Play</span> 🎮</a>
+
+      <nav>
+        <a href="#games">Games</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#credits">Credits</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">WELCOME TO YOUR NEXT LEVEL</p>
+        <h1>Your Games.<br>Your World.<br><span>Your Next Level.</span></h1>
+        <p>Discover games, challenge yourself, and have fun.</p>
+        <a class="main-button" href="#games">Explore Games</a>
+      </section>
+
+      <!-- ACCOUNT AREA -->
+      <section class="account-section" id="account">
+        <div id="signupScreen" class="account-card">
+          <h2>Create your NexPlay account</h2>
+          <input id="signupUsername" type="text" placeholder="Username">
+          <input id="signupEmail" type="email" placeholder="Email">
+          <input id="signupPassword" type="password" placeholder="Password">
+          <button id="signup">Create account</button>
+          <p>Already have an account? <button id="showLogin" class="text-button">Sign in</button></p>
+        </div>
+
+        <div id="loginScreen" class="account-card" hidden>
+          <h2>Welcome back!</h2>
+          <input id="loginEmail" type="email" placeholder="Email">
+          <input id="loginPassword" type="password" placeholder="Password">
+          <button id="login">Sign in</button>
+          <button id="forgotPassword" class="text-button">Forgot password?</button>
+          <p>Need an account? <button id="showSignup" class="text-button">Sign up</button></p>
+        </div>
+
+        <div id="loggedInScreen" class="account-card" hidden>
+          <h2>Welcome, <span id="playerName">Player</span>!</h2>
+          <button id="logout">Log out</button>
+        </div>
+
+        <p id="authMessage" class="message"></p>
+      </section>
+
+      <!-- GAMES -->
+      <section id="games" class="content-section">
+        <h2>🎮 Game Library</h2>
+        <p>Choose a game and have fun!</p>
+
+        <input id="gameSearch" type="search" placeholder="Search games...">
+
+        <div class="game-grid">
+          <article class="game-card">
+            <div class="game-icon">🧠</div>
+            <h3>Memory Match</h3>
+            <p>Match the pairs and test your memory.</p>
+            <button class="play-game" data-game="memory">Play Game</button>
+          </article>
+
+          <article class="game-card">
+            <div class="game-icon">⚡</div>
+            <h3>Click Challenge</h3>
+            <p>How many clicks can you get in 15 seconds?</p>
+            <button class="play-game" data-game="clicker">Play Game</button>
+          </article>
+        </div>
+
+        <p id="noGames" hidden>No games found.</p>
+      </section>
+
+      <!-- GAME SCREEN -->
+      <section id="gameScreen" class="game-screen" hidden>
+        <button id="closeGame">← Back to games</button>
+        <h2 id="gameTitle">Game</h2>
+        <div id="gameArea"></div>
+      </section>
+
+      <!-- LEADERBOARD -->
+      <section id="leaderboard" class="content-section">
+        <h2>🏆 Leaderboard</h2>
+        <p>Top NexPlay players</p>
+        <ol id="leaderboardList">
+          <li>No scores yet. Play a game to get started!</li>
+        </ol>
+      </section>
+
+      <!-- CREDITS -->
+      <section id="credits" class="credits-section">
+        <h2>⭐ Credits</h2>
+        <p>NexPlay was created by</p>
+        <h3>Tybron35</h3>
+        <p>Have a question or want to get in touch?</p>
+        <a href="mailto:tybronhart35@gmail.com">
+          tybronhart35@gmail.com
+        </a>
+      </section>
     </main>
 
-    <footer class="player">
-        <div class="song-info">
-            <h3 id="songTitle">No song selected</h3>
-            <p>Holy Tone Player</p>
-        </div>
-
-        <div class="controls">
-            <button id="previous">⏮</button>
-            <button id="play">▶</button>
-            <button id="next">⏭</button>
-        </div>
-
-        <audio id="audio"></audio>
+    <footer>
+      <p>© 2026 NexPlay. Created by Tybron35.</p>
     </footer>
 
-    <script type="module" src="script.js"></script>
+  </div>
 
+  <script type="module" src="script.js"></script>
 </body>
 </html>
